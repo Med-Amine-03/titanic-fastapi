@@ -3,10 +3,11 @@ import pandas as pd
 from fastapi import FastAPI
 from pydantic import BaseModel
 import joblib
+import os
 
 
-model= joblib.load("model/titanic_pipeline.pkl")
-
+model_path = os.path.join(os.path.dirname(__file__), "model", "titanic_pipeline.pkl")
+model = joblib.load(model_path)
 app = FastAPI()
 
 
